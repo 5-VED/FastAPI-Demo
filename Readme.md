@@ -1,0 +1,40 @@
+# FastAPI and ASGI
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+gunicorn==21.2.0
+
+# Database
+beanie==1.23.6          # MongoDB ODM (Mongoose equivalent)
+motor==3.3.2            # Async MongoDB driver
+pymongo==4.6.0
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.6
+passlib[bcrypt]==1.7.4
+bcrypt==4.1.2
+
+# Validation & Serialization
+pydantic==2.5.0
+pydantic-settings==2.1.0
+email-validator==2.1.0
+
+# Environment & Configuration
+python-dotenv==1.0.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
+
+# Development
+black==23.11.0
+flake8==6.1.0
+pre-commit==3.6.0
+
+# Monitoring & Logging
+structlog==23.2.0
+
+# Optional: Redis for caching
+redis==5.0.1
+aioredis==2.0.1
