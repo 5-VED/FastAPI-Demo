@@ -10,12 +10,10 @@ class User(BaseDocument):
     # Required fields
     username: Indexed(str, unique=True) = Field(..., description="Unique username")
     email: Indexed(EmailStr, unique=True) = Field(..., description="User email address")
-    
     password: str = Field(..., description="Hashed password")    
     first_name: str = Field(None, description="User's first name")
     last_name: str = Field(None, description="User's last name")
     phone: str = Field(None, description="Phone number")
-    
     is_verified: bool = Field(default=False, description="Email verification status")
     
     # Additional fields
