@@ -1,0 +1,20 @@
+.env
+__pycache__/
+
+# Virtual environment
+venv/
+.env/
+.env.*
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Logs
+*.log
