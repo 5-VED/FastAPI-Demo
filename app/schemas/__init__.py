@@ -6,7 +6,7 @@ from .base import BaseDocumentSchema
 from .user import (
     UserBase,
     UserCreate,
-    UserUpdate,
+    # UserUpdate,
     UserRead
 )
 
@@ -14,6 +14,6 @@ __all__ = [
     "BaseDocumentSchema",
     "UserBase",
     "UserCreate",
-    "UserUpdate",
+    # "UserUpdate",
     "UserRead"
 ]

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Query
-from app.schemas import UserCreate, UserUpdate
+from app.schemas import UserCreate
 from app.controllers import UserController
+from typing import Dict, Any
 
 router = APIRouter(prefix="/users", tags=["users"])
 
@@ -48,7 +49,7 @@ async def get_user(user_id: str):
     return await user_controller.get_user(user_id)
 
 @router.put("/{user_id}")
-async def update_user(user_id: str, payload: UserUpdate):
+async def update_user(user_id: str, payload: Any):
     """
     Update a user by their ID
     

@@ -1,0 +1,17 @@
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy dependency list and install
+COPY requirements-simple.txt .
+RUN pip install --no-cache-dir -r requirements-simple.txt
+
+# Include your application code
+COPY . .
+
+# Expose FastAPI default port
+EXPOSE 8000
+
+# Start the app with Uvicorn
+CMD ["python","run.py"] 

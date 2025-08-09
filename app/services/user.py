@@ -3,7 +3,7 @@ import asyncio
 from typing import Dict, Any
 
 from app.repositories import UserRepository
-from app.schemas import UserCreate, UserUpdate
+from app.schemas import UserCreate
 from fastapi import HTTPException, status
 
 
@@ -137,7 +137,7 @@ class UserService:
                 detail=f"Error getting user data: {str(e)}",
             )
 
-    async def update_user(self, user_id: str, payload: UserUpdate) -> Dict[str, Any]:
+    async def update_user(self, user_id: str, payload: Any) -> Dict[str, Any]:
         """Update a user by their ID"""
         try:
             update_data = payload.model_dump(exclude_unset=True, exclude_none=True)
