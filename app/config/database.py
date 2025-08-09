@@ -1,7 +1,7 @@
 import motor.motor_asyncio
 from beanie import init_beanie
 from .settings import settings
-from app.models import User  # Import all your document models here
+from app.models import User, ProductModel  # Import all your document models here
 
 async def init_database():
     """
@@ -15,7 +15,7 @@ async def init_database():
         database=client[settings.mongodb_db_name],
         document_models=[
             User,  # Add all your document models here
-            # Product,  # Add when you create Product model
+            ProductModel,  # Add when you create Product model
         ]
     )
     

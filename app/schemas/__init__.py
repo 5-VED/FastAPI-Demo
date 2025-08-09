@@ -9,11 +9,13 @@ from .user import (
     # UserUpdate,
     UserRead
 )
+from .product import ProductBase
 
 __all__ = [
     "BaseDocumentSchema",
     "UserBase",
     "UserCreate",
     # "UserUpdate",
-    "UserRead"
+    "UserRead",
+    "ProductBase"
 ]

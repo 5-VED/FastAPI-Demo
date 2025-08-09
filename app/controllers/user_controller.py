@@ -18,7 +18,7 @@ class UserController(BaseController):
         """Handle user creation"""
         try:
             result = await self.service.create_user(user_data)
-            return self._success_response(
+            return self._success_response(      
                 result["data"], 
                 result["message"]
             )
