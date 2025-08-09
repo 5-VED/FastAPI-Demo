@@ -16,3 +16,30 @@ class ProductService:
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Failed to create product: {str(e)}"
             )
+
+    async def get_all_products(self, skip: int = 0, limit: int = 10, search: str = "") -> Dict[str, Any]:
+        try:
+            products = await self.product_repository.get_all(skip=skip, limit=limit, search=search)
+            return {"products": products}
+        except Exception as e:
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Failed to fetch products: {str(e)}"
+            )
+
+    async def delete_product(self, id: str) -> Dict[str, Any]:
+        try:
+            result = await self.product_repository.delete(id)
+            if not result:
+                raise HTTPException(
+                    status_code=status.HTTP_404_NOT_FOUND,
+                    detail="Product not found"
+                )
+            return {"message": "Product deleted successfully"}
+        except HTTPException as e:
+            raise e
+        except Exception as e:
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Failed to delete product: {str(e)}"
+            )

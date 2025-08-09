@@ -3,7 +3,7 @@ from app.schemas import UserCreate
 from app.controllers import UserController
 from typing import Dict, Any
 
-router = APIRouter(prefix="/users", tags=["users"])
+router = APIRouter(prefix="/users", tags=["Users"])
 
 # Initialize controller
 user_controller = UserController()

@@ -23,3 +23,25 @@ class ProductController(BaseController):
             }
         except Exception as e:
             return {"error": f"Failed to create product: {str(e)}"}
+
+    async def get_all_products(self, skip: int = 0, limit: int = 10, search: str = "") -> Dict[str, Any]:
+        try:
+            products = await self.service.get_all_products(skip=skip, limit=limit, search=search)
+            return {
+                "data": products,
+                "message": "Products fetched successfully"
+            }
+        except Exception as e:
+            return {"error": f"Failed to fetch products: {str(e)}"}
+
+    async def delete_product(self, id: str) -> Dict[str, Any]:
+        try:
+            result = await self.service.product_repository.delete(id)
+            if not result:
+                self._handle_not_found("Product")
+            return {
+                "is_deleted": result,
+                "message": "Product deleted successfully"
+            }
+        except Exception as e:
+            return {"error": f"Failed to delete product: {str(e)}"}
