@@ -15,7 +15,7 @@ class UserController(BaseController):
         super().__init__(user_service)
     
     async def create_user(self, user_data: UserCreate) -> Dict[str, Any]:
-        """Handle user creation"""
+        """Handle user creation""" 
         try:
             result = await self.service.create_user(user_data)
             return self._success_response(
@@ -76,4 +76,4 @@ class UserController(BaseController):
                 result["message"]
             )
         except Exception as e:
-            return self._error_response(f"Failed to delete user: {str(e)}") 
+            return self._error_response(f"Failed to delete user: {str(e)}")

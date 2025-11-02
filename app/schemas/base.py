@@ -12,5 +12,5 @@ class BaseDocumentSchema(BaseModel):
     is_deleted: bool
 
     class Config:
-        from_attributes = True  # Updated for Pydantic v2 (replaces orm_mode)
+        from_attributes = True
 
