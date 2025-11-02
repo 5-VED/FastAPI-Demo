@@ -7,4 +7,4 @@ api_router = APIRouter()
 
 # Include user routes
 api_router.include_router(user_router)
-api_router.include_router(product_router)
+# api_router.include_router(product_router)
