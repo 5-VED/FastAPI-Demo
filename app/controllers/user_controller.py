@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from app.schemas import UserCreate, UserUpdate
+from app.schemas import UserCreate
 from app.services.user import UserService
 from app.repositories import UserRepository
 from .base_controller import BaseController
@@ -18,7 +18,7 @@ class UserController(BaseController):
         """Handle user creation""" 
         try:
             result = await self.service.create_user(user_data)
-            return self._success_response(
+            return self._success_response(      
                 result["data"], 
                 result["message"]
             )
@@ -48,7 +48,7 @@ class UserController(BaseController):
         except Exception as e:
             return self._error_response(f"Failed to get users: {str(e)}")
     
-    async def update_user(self, user_id: str, user_data: UserUpdate) -> Dict[str, Any]:
+    async def update_user(self, user_id: str, user_data: Any) -> Dict[str, Any]:
         """Handle user update"""
         try:
             result = await self.service.update_user(user_id, user_data)

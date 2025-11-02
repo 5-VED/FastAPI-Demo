@@ -37,18 +37,6 @@ class UserCreate(UserBase):
             raise ValueError('Username must be alphanumeric (underscores and hyphens allowed)')
         return v
 
-# Schema for updating user information
-class UserUpdate(BaseModel):
-    """
-    Schema for updating user information
-    """
-    username: Optional[str] = Field(None, min_length=3, max_length=50)
-    email: Optional[EmailStr] = None
-    first_name: Optional[str] = Field(None, max_length=50)
-    last_name: Optional[str] = Field(None, max_length=50)
-    phone: Optional[str] = None
-    bio: Optional[str] = Field(None, max_length=500)
-
 # Schema for reading user data (response)
 class UserRead(BaseDocumentSchema):
     """
@@ -63,6 +51,7 @@ class UserRead(BaseDocumentSchema):
     bio: Optional[str] = None
     profile_picture: Optional[str] = None
     is_verified: bool
+    is_superuser: bool
     
     # Add computed field for full name
     @property
