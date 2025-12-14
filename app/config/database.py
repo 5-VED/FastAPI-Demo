@@ -13,7 +13,7 @@ async def init_database():
     print(f"🔗 Connecting to MongoDB at {settings.mongodb_url}...")
     await init_beanie(
         database=client[settings.mongodb_db_name],
-        document_models=[
+        document_models = [
             User,  # Add all your document models here
             ProductModel,  # Add when you create Product model
         ]

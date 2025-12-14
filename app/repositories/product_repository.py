@@ -15,7 +15,6 @@ class ProductRepository(BaseRepository):
     async def create(self, data: Dict[str, Any]) -> Document:
         """ Create a new Document """
         try:
-            print("Creating product with data:", data)
             instance = self.model(**data)
             await instance.save()
             return instance

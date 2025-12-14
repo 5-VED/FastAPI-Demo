@@ -7,7 +7,7 @@ class ProductModel(BaseDocument):
     """
     Product document model for MongoDB
     """
-    product_name: Indexed(str, unique=True) = Field(..., description="Unique product name")
+    product_name: Indexed(str, unique = True) = Field(..., description="Unique product name")
     price: float = Field(..., description="Product price")
     image_url: Optional[str] = Field(None, description="URL to product image")
     video_url: Optional[str] = Field(None, description="URL to product video")

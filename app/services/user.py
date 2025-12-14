@@ -1,5 +1,4 @@
 import bcrypt
-import asyncio
 from typing import Dict, Any
 
 from app.repositories import UserRepository
